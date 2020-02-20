@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="liza_container liza_blur_on_aside liza_no_sidebar liza_header_padding_yes liza_footer_padding_yes">
+		<div class="liza_content_no_sidebar liza_content">
+			<div class="liza_tiny">
+				<!-- Content -->
+				<div class="row liza_gutters">
+					<div class="col col-8 liza_js_padding" data-padTop = "4" data-padBottom="35">
+						<h4 class="liza_js_margin" data-marBottom="31">I Really Appreciate Your Feedback</h4>
+						<form id="liza_contact_form" class="liza_js_padding" data-padBottom="48">
+							<div class="liza_contact_form">
+								<textarea name="message" cols="40" rows="10" placeholder="MESSAGE"></textarea>
+								<input type="text" name="name" value="" size="40" placeholder="NAME">
+								<input type="email" name="email" value="" size="40" placeholder="EMAIL">
+								<input type="submit" value="SEND MESSAGE">
+							</div>
+						</form>
+
+						
+					</div><!-- .col-8 -->
+
+					<div class="col col-4 liza_js_padding" data-padTop="13">
+						<div class="liza_about_widget liza_js_padding" data-padBottom="73">
+							<img src="{% static 'img/widget01.jpg' %}" alt="" />
+							<h5>Liza Henderson</h5>
+							Hello! My name's Liza Henderson and I'm a Art Director &amp; Photographer based in the San Francisco.
+							<div class="liza_widget_socials">
+								<a class="liza_widget_soc_facebook" href="#"><span class="fa fa-facebook"></span></a>
+								<a class="liza_widget_soc_twitter" href="#"><span class="fa fa-twitter"></span></a>
+								<a class="liza_widget_soc_vk" href="#"><span class="fa fa-vk"></span></a>
+								<a class="liza_widget_soc_gplus" href="#"><span class="fa fa-google-plus"></span></a>
+								<a class="liza_widget_soc_pinterest" href="#"><span class="fa fa-pinterest"></span></a>
+								<a class="liza_widget_soc_envelope" href="#"><span class="fa fa-envelope"></span></a>
+							</div><!-- .liza_widget_socials -->
+						</div><!-- .liza_about_widget -->
+
+					</div><!-- .col-4 -->
+				</div><!-- .row -->
+
+				<!-- End of Content -->
+			</div><!-- .liza_tiny -->
+		</div><!-- .liza_content -->
+	</div><!-- .liza_container -->
+
+{% endblock content %}
