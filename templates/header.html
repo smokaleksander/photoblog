@@ -13,15 +13,43 @@
 					</a><!-- .liza_menu_toggler -->
 					<nav class="liza_main_nav liza_blur_on_aside">					
 						<ul class="liza_menu">
-							<li class="menu-item-has-children current-menu-ancestor">
+							<li
+								{% if '/' == request.path %}
+									class="menu-item-has-children current-menu-ancestor"
+								{% else %}
+									class="menu-item-has-children"
+								{% endif %}
+							>
 								<a href="{% url 'index' %}">O Mnie</a>
 							</li>
 							</li> 
-							<li class="menu-item-has-children"><a href="{% url 'galleries' %}">Galerie</a>
+							<li
+								{% if 'galerie' in request.path %}
+									class="menu-item-has-children current-menu-ancestor"
+								{% else %}
+									class="menu-item-has-children"
+								{% endif %}
+							>
+								<a href="{% url 'galleries' %}">Galerie</a>
 							</li>
-							<li class="menu-item-has-children"><a href="{% url 'projects' %}">Projekty</a>
+							<li
+								{% if 'projekty' in request.path %}
+									class="menu-item-has-children current-menu-ancestor"
+								{% else %}
+									class="menu-item-has-children"
+								{% endif %}
+							>
+								<a href="{% url 'projects' %}">Projekty</a>
 							</li>
-							<li><a href="{% url 'contact' %}">Kontakt</a></li>
+							<li
+								{% if 'Kontakt' in request.path %}
+									class="menu-item-has-children current-menu-ancestor"
+								{% else %}
+									class="menu-item-has-children"
+								{% endif %}
+							>
+							<a href="{% url 'contact' %}">Kontakt</a>
+							</li>
 						</ul>
 					</nav><!-- .liza_main_nav -->
 				</div><!-- .liza_menu_block -->

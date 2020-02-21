@@ -23,11 +23,10 @@
 							<ul id="options">
 								<li>
 									<ul class="liza_albums_optionset liza_filter_inner" data-option-key="filter">
-										<li class="selected"><a href="javascript:void(0)" data-option-value="*">All</a></li>
-										<li><a data-option-value=".fashion" href="javascript:void(0)">Fashion</a></li>
-										<li><a data-option-value=".food-drink" href="javascript:void(0)">Food+Drink</a></li>
-										<li><a data-option-value=".lifestyle" href="javascript:void(0)">Lifestyle</a></li>
-										<li><a data-option-value=".people" href="javascript:void(0)">People</a></li>
+										<li class="selected"><a href="javascript:void(0)" data-option-value="*">Wszystkie</a></li>
+										{% for tag in tags %}
+											<li><a data-option-value=".{{tag.name}}" href="javascript:void(0)">{{tag.name}}</a></li>
+										{% endfor %}
 									</ul><!-- .liza_project_optionset -->
 								</li>
 							</ul>
@@ -35,131 +34,32 @@
 		
 						<div class="liza_albums_grid liza_albums_grid3" data-uniqid="8202">
 							<div class="liza_albums_grid_inner" data-pad="60">
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading people" data-category="people">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-portrait.html"><img src="{% static 'img/albums_listing/grid01.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-portrait.html"><h4 class="innertitle entry-title">Portrait Slider</h4></a>
+								{% if galleries %}
+									{% for gallery in galleries %}
+										<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading {{gallery.tags.all|join:" "}}" data-category="{{gallery.tags.all|join:" "}}">
+											<div class="liza_album_grid_post_inner">
+												<div class="liza_album_grid_image"><a href="{% url 'gallery' gallery.slug %}"><img src="{{ gallery.img1.url}}" alt=""/></a></div>
+												<div class="liza_grid_post_title">
+													<a class="notextdecor" href="album_single-portrait.html"><h4 class="innertitle entry-title">{{gallery.title}}</h4></a>
+												</div>
+												<div class="liza_grid_album_meta liza_meta">
+													<div>{{gallery.date}}</div>
+													<div>{{gallery.tags.all|join:", "}}</div>
+												</div>
+											</div>
 										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in People</div>
-										</div>
+									{% endfor %}
+								{% else %}
+									<div class='col-md-12'>
+										<p>Galerie niedostępne</p>
 									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading people" data-category="people">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-masonry.html"><img src="{% static 'img/albums_listing/grid02.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-masonry.html"><h4 class="innertitle entry-title">Good Memories</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in People</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading fashion people" data-category="fashion people">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-grid.html"><img src="{% static 'img/albums_listing/grid03.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-grid.html"><h4 class="innertitle entry-title">Portraits Session</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in Fashion, People</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading fashion" data-category="fashion">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-slider.html"><img src="{% static 'img/albums_listing/grid04.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-slider.html"><h4 class="innertitle entry-title">Strict and beauty</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in Fashion</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading lifestyle motion" data-category="lifestyle motion">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-ribbon.html"><img src="{% static 'img/albums_listing/grid05.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-ribbon.html"><h4 class="innertitle entry-title">Active time</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in Lifestyle, Motion</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading people" data-category="people">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-ribbon.html"><img src="{% static 'img/albums_listing/grid06.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-ribbon.html"><h4 class="innertitle entry-title">Best Friends</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in People</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading food-drink people" data-category="food-drink people">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-masonry.html"><img src="{% static 'img/albums_listing/grid07.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-masonry.html"><h4 class="innertitle entry-title">Coffee Break</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in Food+Drink, People</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading fashion" data-category="fashion">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-slider.html"><img src="{% static 'img/albums_listing/grid08.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-slider.html"><h4 class="innertitle entry-title">Street Fashion</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in Fashion</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading food-drink" data-category="food-drink">
-									<div class="liza_album_grid_post_inner">
-										<div class="liza_album_grid_image"><a href="album_single-grid.html"><img src="{% static 'img/albums_listing/grid09.jpg'%}" alt=""/></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="album_single-grid.html"><h4 class="innertitle entry-title">Still life</h4></a>
-										</div>
-										<div class="liza_grid_album_meta liza_meta">
-											<div>Oct 05, 2017</div>
-											<div>in Food+Drink</div>
-										</div>
-									</div>
-								</div>
+								{% endif %}
 
 							</div><!-- .liza_albums_grid_inner -->
 						</div><!-- .liza_albums_grid -->
 					</div><!-- .col-12 -->
 				</div><!-- .row -->
 				
-				<div class="row">
-					<div class="col col-12 align_center"><a href="albums-grid.html" class="liza_button">View More</a></div>
-				</div><!-- .row -->
 
 				<!-- End of Content -->
 			</div><!-- .liza_tiny -->

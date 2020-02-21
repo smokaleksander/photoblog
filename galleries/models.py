@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.utils.text import slugify
+import os
 # Create your models here.
 class Tag(models.Model):
     name =models.CharField( max_length=50)
@@ -29,3 +30,11 @@ class Gallery(models.Model):
     img13 = models.ImageField(upload_to=get_image_path, blank=True)
     img14 = models.ImageField(upload_to=get_image_path, blank=True)
     img15 = models.ImageField(upload_to=get_image_path, blank=True)
+    slug=models.SlugField(null=False, unique=True)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs): # new
+        self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
