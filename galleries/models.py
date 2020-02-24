@@ -12,14 +12,14 @@ class Gallery(models.Model):
     def get_image_path(self, filename):
         return os.path.join('photos', self.title, filename)
 
-    title= models.CharField(max_length=150)
-    date = models.DateTimeField(auto_now_add=True)
+    title= models.CharField(max_length=150, unique=True)
+    date = models.DateField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)
     img1 = models.ImageField(upload_to=get_image_path)
     img2 = models.ImageField(upload_to=get_image_path)
     img3 = models.ImageField(upload_to=get_image_path)
     img4 = models.ImageField(upload_to=get_image_path)
-    img5 = models.ImageField(upload_to=get_image_path, blank=True)
+    img5 = models.ImageField(upload_to=get_image_path)
     img6 = models.ImageField(upload_to=get_image_path, blank=True)
     img7 = models.ImageField(upload_to=get_image_path, blank=True)
     img8 = models.ImageField(upload_to=get_image_path, blank=True)
@@ -30,7 +30,7 @@ class Gallery(models.Model):
     img13 = models.ImageField(upload_to=get_image_path, blank=True)
     img14 = models.ImageField(upload_to=get_image_path, blank=True)
     img15 = models.ImageField(upload_to=get_image_path, blank=True)
-    slug=models.SlugField(null=False, unique=True)
+    slug=models.SlugField(default='', editable=False)
 
     def __str__(self):
         return self.title
@@ -38,3 +38,4 @@ class Gallery(models.Model):
     def save(self, *args, **kwargs): # new
         self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
+

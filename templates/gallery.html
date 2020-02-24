@@ -10,91 +10,157 @@
 			data-perload="3" 
 			data-overlay="rgba(0,0,0,0.6)">
 
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid01.jpg" title=""></a>
-					<img src="img/project_grid/grid01.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
+			{% if gallery %}
+				<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img1.url}}" title=""></a>
+						<img src="{{gallery.img1.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img2.url}}" title=""></a>
+						<img src="{{gallery.img2.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img3.url}}" title=""></a>
+						<img src="{{gallery.img3.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img4.url}}" title=""></a>
+						<img src="{{gallery.img4.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img5.url}}" title=""></a>
+						<img src="{{gallery.img5.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% if gallery.img6 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+						<div class="grid-item-inner">
+							<a class="swipebox" href="{{gallery.img6.url}}" title=""></a>
+							<img src="{{gallery.img6.url}}" alt=""  class="grid_thmb"/>
+							<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+							<div class="liza-img-preloader"></div>
+						</div>
+					</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img7 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img7.url}}" title=""></a>
+						<img src="{{gallery.img7.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img8 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img8.url}}" title=""></a>
+						<img src="{{gallery.img8.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img9 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img9.url}}" title=""></a>
+						<img src="{{gallery.img9.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img10 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img10.url}}" title=""></a>
+						<img src="{{gallery.img10.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img11 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img11.url}}" title=""></a>
+						<img src="{{gallery.img11.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img12 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img12.url}}" title=""></a>
+						<img src="{{gallery.img12.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img13 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img13.url}}" title=""></a>
+						<img src="{{gallery.img13.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img14 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img14.url}}" title=""></a>
+						<img src="{{gallery.img14.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+				{% if gallery.img15 %}
+					<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
+					<div class="grid-item-inner">
+						<a class="swipebox" href="{{gallery.img15.url}}" title=""></a>
+						<img src="{{gallery.img15.url}}" alt=""  class="grid_thmb"/>
+						<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+						<div class="liza-img-preloader"></div>
+					</div>
+				</div><!-- .grid-item -->
+				{% endif %}
+			{% else %}
+				<div class='col-md-12'>
+					<p>Podgląd niedostępny</p>
 				</div>
-			</div><!-- .grid-item -->
+			{% endif %}
+
 			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid02.jpg" title=""></a>
-					<img src="img/project_grid/grid02.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid03.jpg" title=""></a>
-					<img src="img/project_grid/grid03.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid04.jpg" title=""></a>
-					<img src="img/project_grid/grid04.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid05.jpg" title=""></a>
-					<img src="img/project_grid/grid05.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid06.jpg" title=""></a>
-					<img src="img/project_grid/grid06.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid07.jpg" title=""></a>
-					<img src="img/project_grid/grid07.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid08.jpg" title=""></a>
-					<img src="img/project_grid/grid08.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
-			
-			<div class="grid-item element anim_el anim_el2 load_anim grid_b2p">
-				<div class="grid-item-inner">
-					<a class="swipebox" href="img/project_grid/grid09.jpg" title=""></a>
-					<img src="img/project_grid/grid09.jpg" alt=""  class="grid_thmb"/>
-					<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
-					<div class="liza-img-preloader"></div>
-				</div>
-			</div><!-- .grid-item -->
 			
 		</div><!-- .liza_grid_inner -->
-		<div class="row">
-			<div class="col col-12 align_center liza_js_margin" data-marTopTablet="30" data-marBottomTablet="-40" data-marBottomMobile="-60"><a href="album_single-grid.html" class="liza_button ">View More</a></div>
-		</div><!-- .row -->
+		
 	</div><!-- .liza_grid_wrapper_single -->
 
 {% endblock content %}
