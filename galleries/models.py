@@ -8,14 +8,12 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-class GalleryImage(models.Model):
-    img=models.ImageField(upload_to='photos/')
+
 
 class Gallery(models.Model):
     title= models.CharField(max_length=150, unique=True)
     date = models.DateField(auto_now_add=True)
     tags = models.ManyToManyField(Tag)
-    imgs=models.ForeignKey(GalleryImage, on_delete=models.CASCADE)
     slug=models.SlugField(default='', editable=False)
 
     def __str__(self):
@@ -25,3 +23,6 @@ class Gallery(models.Model):
         self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+class GalleryImage(models.Model):
+    img=models.ImageField(upload_to='photos/')
+    gallery=models.ForeignKey(Gallery, on_delete=models.CASCADE)

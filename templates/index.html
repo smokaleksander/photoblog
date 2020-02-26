@@ -303,44 +303,31 @@
 					<div class="col col-12">						
 						<div class="liza_projects_grid liza_projects_grid2" data-uniqid="2952">
 							<div class="liza_projects_grid_inner" data-pad="60">
-								<div class="liza_project_grid_post_wrapper liza_project_loading liza_project_element people portraits" data-category="people portraits">
-									<div class="liza_project_grid_post_inner">
-										<div class="liza_project_grid_image"><a href="project_single-fullwidth.html"><img src="{% static 'img/project_grid/masonry01.jpg'%}" alt=""></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="project_single-fullwidth.html"><h5 class="innertitle entry-title">Attractive babe</h5></a>
+								{% if projects %}
+									{% for project in projects %}
+										<div class="liza_project_grid_post_wrapper liza_project_loading liza_project_element people portraits" data-category="people portraits">
+											<div class="liza_project_grid_post_inner">
+												{% for image in project.imgs.all %} 
+												<div>{{image.img}}</div>
+												<div class="liza_project_grid_image"><a href="project_single-fullwidth.html"><img src="{{image.img.url }}" alt=""></a></div>
+												{% endfor %}
+												<div class="liza_grid_post_title">
+												<a class="notextdecor" href="project_single-fullwidth.html"><h5 class="innertitle entry-title">{{project.title}}</h5></a>
+												</div>
+												<div class="liza_grid_project_meta liza_meta">
+													<div>{{project.date}}</div>
+												</div>
+											</div>
 										</div>
-										<div class="liza_grid_project_meta liza_meta">
-											<div>Sep 24, 2017aaaaa</div>
-											<div>in  People, Portraits</div>
-										</div>
+									{% endfor %}
+								{% else %}
+									<div>
+										<p>Projekty niedostępne</p>
 									</div>
-								</div>
+								{% endif %}
+								
 
-								<div class="liza_project_grid_post_wrapper liza_project_loading liza_project_element lifestyle people" data-category="lifestyle people">
-									<div class="liza_project_grid_post_inner">
-										<div class="liza_project_grid_image"><a href="project_single-left.html"><img src="{% static 'img/project_grid/masonry02.jpg'%}" alt=""></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="project_single-left.html"><h5 class="innertitle entry-title">Keep dancing</h5></a>
-										</div>
-										<div class="liza_grid_project_meta liza_meta">
-											<div>Sep 24, 2017</div>
-											<div>in  Lifestyle, People</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="liza_project_grid_post_wrapper liza_project_loading liza_project_element fashion people" data-category="fashion people">
-									<div class="liza_project_grid_post_inner">
-										<div class="liza_project_grid_image"><a href="project_single-right.html"><img src="{% static 'img/project_grid/masonry03.jpg'%}" alt=""></a></div>
-										<div class="liza_grid_post_title">
-											<a class="notextdecor" href="project_single-right.html"><h5 class="innertitle entry-title">City rhythm</h5></a>
-										</div>
-										<div class="liza_grid_project_meta liza_meta">
-											<div>Sep 24, 2017</div>
-											<div>in  Fashion, People</div>
-										</div>
-									</div>
-								</div>
+								
 
 							</div><!-- .liza_projects_grid_inner -->
 						</div><!-- .liza_projects_grid -->
