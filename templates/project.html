@@ -35,50 +35,13 @@
 					</div><!-- .col-12 -->
 				</div><!-- .row -->
 
-				<div class="row liza_js_padding liza_gutters liza_promo_3images" data-padBottom="59">
-					<div class="col col-4 liza_js_padding" data-padTop="80">
-						<img src="{{project.img2.url}}" alt=""/>
-					</div><!-- .col-4 -->
-					<div class="col col-4">
-						<img src="{{project.img3.url}}" alt=""/>
-					</div><!-- .col-4 -->
-					<div class="col col-4 liza_js_padding" data-padTop="80">
-						<img src="{{project.img4.url}}" alt=""/>
-					</div><!-- .col-4 -->
-                    {% if project.img5 %}
-                        <div class="col col-4 liza_js_padding" data-padTop="80">
-                            {% if project.img6 %}
-						        <img src="{{project.img6.url}}" alt=""/>
-                            {% endif %}
-					    </div><!-- .col-4 -->
-					    <div class="col col-4">
-						    <img src="{{project.img5.url}}" alt=""/>
-					    </div><!-- .col-4 -->
-					    <div class="col col-4 liza_js_padding" data-padTop="80">
-                            {% if project.img7 %}
-						        <img src="{{project.img7.url}}" alt=""/>
-                            {% endif %}
-					    </div><!-- .col-4 -->
-                    {% endif %}
-                    {% if project.img8 %}
-                        <div class="col col-4 liza_js_padding" data-padTop="80">
-                            {% if project.img9 %}
-						        <img src="{{project.img9.url}}" alt=""/>
-                            {% endif %}
-					    </div><!-- .col-4 -->
-					    <div class="col col-4">
-						    <img src="{{project.img8.url}}" alt=""/>
-					    </div><!-- .col-4 -->
-					    <div class="col col-4 liza_js_padding" data-padTop="80">
-                            {% if project.img10 %}
-						        <img src="{{project.img10.url}}" alt=""/>
-                            {% endif %}
-					    </div><!-- .col-4 -->
-                    {% endif %}
+				<div class="row liza_js_padding liza_gutters liza_promo_3images justify-content-center" >
+					{% for image in project.imgs.all %} 
+						<div class="{% cycle 'col col-4 liza_js_padding' 'col col-4' %}" data-padTop="80" data-padBottom="59">
+							<img src="{{image.img.url}}" alt=""/>
+						</div><!-- .col-4 -->				
+					{% endfor %}
 				</div><!-- .row -->
-				
-
-				
 				<!-- End of Content -->
 			</div><!-- .liza_tiny -->
 		</div><!-- .liza_content -->

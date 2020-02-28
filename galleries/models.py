@@ -25,4 +25,4 @@ class Gallery(models.Model):
 
 class GalleryImage(models.Model):
     img=models.ImageField(upload_to='photos/')
-    gallery=models.ForeignKey(Gallery, on_delete=models.CASCADE)
+    gallery=models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='imgs')

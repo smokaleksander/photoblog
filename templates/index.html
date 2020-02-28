@@ -308,8 +308,10 @@
 										<div class="liza_project_grid_post_wrapper liza_project_loading liza_project_element people portraits" data-category="people portraits">
 											<div class="liza_project_grid_post_inner">
 												{% for image in project.imgs.all %} 
-												<div>{{image.img}}</div>
-												<div class="liza_project_grid_image"><a href="project_single-fullwidth.html"><img src="{{image.img.url }}" alt=""></a></div>
+													{% if forloop.counter == 1 %}
+														<div class="liza_project_grid_image"><a href="project_single-fullwidth.html"><img src="{{image.img.url }}" alt=""></a></div>
+													{% endif %}
+													
 												{% endfor %}
 												<div class="liza_grid_post_title">
 												<a class="notextdecor" href="project_single-fullwidth.html"><h5 class="innertitle entry-title">{{project.title}}</h5></a>
@@ -335,9 +337,8 @@
 				</div><!-- .row -->
 				
 				<div class="row">
-					<div class="col col-12 align_center"><a href="projects-masonry.html" class="liza_button ">View More</a></div>
+					<div class="col col-12 align_center"><a href="albums-grid.html" class="liza_button">View More</a></div>
 				</div><!-- .row -->
-
 				
 
 				<!-- End of Content -->

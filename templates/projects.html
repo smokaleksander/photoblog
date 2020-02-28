@@ -17,8 +17,13 @@
 										<div class="liza_project_post_wrapper liza_project_loading" data-height="700" data-width="1075">
 											<div class="liza_project_post_inner">
 												<div class="liza_project_image_part">
-													<div class="liza_stand_fi_project_listing" data-src="{{project.img1.url}}">
-													<a href="project_single-fullwidth.html" class="project_listing_see_btn">Zobacz projekt</a>
+													{% for image in project.imgs.all %} 
+														{% if forloop.counter == 1 %}
+															<div class="liza_stand_fi_project_listing" data-src="{{image.img.url}}">
+														{% endif %}
+													{% endfor %}
+													
+													<a href="{% url 'project' project.slug %}" class="project_listing_see_btn">Zobacz projekt</a>
 													</div>
 												</div><!-- .liza_project_image_part -->
 												<div class="liza_project_content_part">
@@ -48,9 +53,29 @@
 									</div>
 								{% endif %}
 								
-
+								{% if projects.has_other_pages %}
+								<div class="row">
+									<div class="col col-12 align_center">
+										<div class="pagination">
+											{% if projects.has_previous %}
+												<a href="?page={{projects.previous_page_number}}">&laquo;</a>
+											{% endif %}
+											{% for i in projects.paginator.page_range %}
+												{% if projects.number == i %}
+													<a class="active">{{i}}</a>
+												{% else %}
+													<a href="?page={{i}}">{{i}}</a>
+												{% endif %}
+												
+											{% endfor %}
+											{% if projects.has_next %}
+												<a href="?page={{projects.next_page_number}}">&raquo;</a>
+											{% endif %}
+										</div>
+									</div>
+								</div><!-- .row -->
+								{% endif %}
 								
-
 							</div><!-- .liza_projects_inner -->
 						</div><!-- .liza_projects -->
 					</div><!-- .col-12 -->
