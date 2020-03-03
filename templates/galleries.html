@@ -38,9 +38,15 @@
 									{% for gallery in galleries %}
 										<div class="liza_album_grid_post_wrapper liza_album_element liza_album_loading {{gallery.tags.all|join:" "}}" data-category="{{gallery.tags.all|join:" "}}">
 											<div class="liza_album_grid_post_inner">
-												<div class="liza_album_grid_image"><a href="{% url 'gallery' gallery.slug %}"><img src="{{ gallery.img1.url}}" alt=""/></a></div>
+												<div class="liza_album_grid_image"><a href="{% url 'gallery' gallery.slug %}">
+												{% for image in gallery.imgs.all %}
+														{% if forloop.counter == 1 %}
+															<img src="{{ image.img.url}}" alt=""/>
+														{% endif %}
+												{% endfor %}
+												</a></div>
 												<div class="liza_grid_post_title">
-													<a class="notextdecor" href="album_single-portrait.html"><h4 class="innertitle entry-title">{{gallery.title}}</h4></a>
+													<a class="notextdecor" href="{% url 'gallery' gallery.slug %}"><h4 class="innertitle entry-title">{{gallery.title}}</h4></a>
 												</div>
 												<div class="liza_grid_album_meta liza_meta">
 													<div>{{gallery.date}}</div>

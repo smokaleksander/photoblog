@@ -13,28 +13,21 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='GalleryImage',
+            name='ProjectImage',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('img', models.ImageField(upload_to='photos/')),
             ],
         ),
         migrations.CreateModel(
-            name='Tag',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Gallery',
+            name='Project',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=150, unique=True)),
+                ('description', models.TextField(max_length=1100)),
                 ('date', models.DateField(auto_now_add=True)),
                 ('slug', models.SlugField(default='', editable=False)),
-                ('imgs', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='galleries.GalleryImage')),
-                ('tags', models.ManyToManyField(to='galleries.Tag')),
+                ('imgs', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='projects.ProjectImage')),
             ],
         ),
     ]

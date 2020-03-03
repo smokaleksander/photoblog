@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="liza_title_breadcrumb_wrapper liza_blur_on_aside liza_js_bg_image " data-src="img/breadcrumb05.jpg">
+		<div class="liza_title_breadcrumb_inner liza_container">
+			<div class="liza_title">
+				<h1 class="entry-title">{{project.title}}</h1>
+			</div>
+			<div class="liza_breadcrumbs">
+				<a href="{% url 'projects'%}" rel="tag">Projekty</a><span class="liza_breadcrumb_divider">/</span><span class="current">{{project.title}}</span>
+			</div>
+		</div>
+	</div><!-- .liza_title_breadcrumb_wrapper -->
+	  	
+	<div class="liza_container liza_blur_on_aside liza_no_sidebar liza_header_padding_yes liza_footer_padding_yes single-project">
+		<div class="liza_content_no_sidebar liza_content">
+			<div class="liza_post_formats">
+				<img class="liza_stand_fi" src="{{project.img1.url}}" alt=""/>
+			</div><!-- .liza_post_formats -->
+			
+			<div class="liza_single_post_title">
+				<h2>{{project.title}}</h2>
+			</div><!-- .liza_single_post_title -->
+			
+			<div class="liza_meta">
+				<div>{{project.date}}</div>
+			</div><!-- .liza_meta -->
+
+			<div class="liza_tiny">
+				<!-- Content -->
+				<div class="row liza_js_padding" data-padBottom="41">
+					<div class="col col-12">
+						<p>{{project.description}}</p>
+					</div><!-- .col-12 -->
+				</div><!-- .row -->
+
+				<div class="row liza_js_padding liza_gutters liza_promo_3images justify-content-center" >
+					{% for image in project.imgs.all %} 
+						<div class="{% cycle 'col col-4 liza_js_padding' 'col col-4' %}" data-padTop="80" data-padBottom="59">
+							<img src="{{image.img.url}}" alt=""/>
+						</div><!-- .col-4 -->				
+					{% endfor %}
+				</div><!-- .row -->
+				<!-- End of Content -->
+			</div><!-- .liza_tiny -->
+		</div><!-- .liza_content -->
+	</div><!-- .liza_container -->
+
+{% endblock content %}
