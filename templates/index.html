@@ -25,7 +25,7 @@
 									data-descr = ""
 									data-ratio = "1.6"
 									data-transition = "1000">
-									<img src="img/home02_slider1.jpg" alt="" />
+									<img src="{{ photo_slider.img1.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -36,7 +36,7 @@
 									data-descr = ""
 									data-ratio = "1.5"
 									data-transition = "1000">
-									<img src="img/home02_slider2.jpg" alt="" />
+									<img src="{{ photo_slider.img2.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -47,7 +47,7 @@
 									data-descr = ""
 									data-ratio = "1.77777777"
 									data-transition = "1000">
-									<img src="img/home02_slider3.jpg" alt="" />
+									<img src="{{ photo_slider.img3.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -58,7 +58,7 @@
 									data-descr = ""
 									data-ratio = "1.6"
 									data-transition = "1000">
-									<img src="img/home02_slider4.jpg" alt="" />
+									<img src="{{ photo_slider.img4.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -69,7 +69,7 @@
 									data-descr = ""
 									data-ratio = "1.77777777"
 									data-transition = "1000">
-									<img src="img/home02_slider5.jpg" alt="" />
+									<img src="{{ photo_slider.img5.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -77,9 +77,6 @@
 							</div><!-- .liza_ribbon_gallery_container -->
 							<a href="javascript:void(0)" class="liza_ribbon_prevSlide liza_button_prev"></a>
 							<a href="javascript:void(0)" class="liza_ribbon_nextSlide liza_button_next"></a>
-							<div class="liza_ribbon_title_content">
-								<h1 class="liza_ribbon_title">&nbsp;</h1>
-							</div>
 							<div class="liza_ribbon_gallery_trigger personal_preloader"></div>
 						</div><!-- .liza_ribbon_slider_wrapper -->
 					</div>
@@ -122,9 +119,9 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>YEARS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>LAT</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="10">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.years}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
@@ -138,7 +135,7 @@
 								<div class="liza_counter_content">
 									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>CLIENTS</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="38">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.clients}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
@@ -152,27 +149,29 @@
 								<div class="liza_counter_content">
 									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>PROJECTS</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="250">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.projects}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
 							</div>
 						</div><!-- .liza_counter -->
 					</div><!-- .col col-3 -->
-					
-					<div class="col col-3">
+					{% if counter.awards != 0 %}
+						<div class="col col-3">
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
 									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>AWARDS</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="15">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.awards}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
 							</div>
 						</div><!-- .liza_counter -->
-					</div><!-- .col col-3 -->
+						</div><!-- .col col-3 -->
+					{% endif %}
+					
 				</div><!-- .row -->
 
 				<div class="row liza_js_padding" data-padBottom="25">
@@ -275,7 +274,7 @@
 								<div class="liza_testimonials_item_inner">
 									<div class="testimonial_content">“Eget fringilla lacus suscipit. Nam lobortis efficitur porta. Nunc et congue nisl. Praesent enim justo, congue eu.”</div>
 									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial05.jpg" alt="" class="testimonials_img"/>
+										<img src="{% static 'img/testimonials/testimonial05.jpg'%}" alt="" class="testimonials_img"/>
 										<h6 class="testimonial_author">Sophia Wilson</h6>
 										<div class="testimonial_additional">Artist, Boston</div>
 									</div>
