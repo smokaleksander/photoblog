@@ -35,7 +35,7 @@ class MainPageCounter(models.Model):
 class Testimonial(models.Model):
     name=models.CharField(max_length=50)
     role=models.CharField(max_length=50)
-    description=models.TextField(max_length=300)
+    description=models.TextField(max_length=200)
     img=models.ImageField(upload_to='photos/', blank=True)
 
     def __str__(self):
