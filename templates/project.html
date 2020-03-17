@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-    <div class="liza_title_breadcrumb_wrapper liza_blur_on_aside liza_js_bg_image " data-src="img/breadcrumb05.jpg">
+    <div class="liza_title_breadcrumb_wrapper liza_blur_on_aside liza_js_bg_image " data-src="{% for image in project.imgs.all %}{% if forloop.counter == 1 %}{{ image.img.url}}{% endif %}{% endfor %}">
 		<div class="liza_title_breadcrumb_inner liza_container">
 			<div class="liza_title">
 				<h1 class="entry-title">{{project.title}}</h1>
@@ -24,7 +24,7 @@
 			</div><!-- .liza_single_post_title -->
 			
 			<div class="liza_meta">
-				<div>{{project.date}}</div>
+				<div>{{project.date|date:'d/m/Y'}}</div>
 			</div><!-- .liza_meta -->
 
 			<div class="liza_tiny">
@@ -34,16 +34,25 @@
 						<p>{{project.description}}</p>
 					</div><!-- .col-12 -->
 				</div><!-- .row -->
-
-				<div class="row liza_js_padding liza_gutters liza_promo_3images justify-content-center" >
-					{% for image in project.imgs.all %} 
-						<div class="{% cycle 'col col-4 liza_js_padding' 'col col-4' %}" data-padTop="80" data-padBottom="59">
-							<img src="{{image.img.url}}" alt=""/>
-						</div><!-- .col-4 -->				
-					{% endfor %}
-				</div><!-- .row -->
 				<!-- End of Content -->
 			</div><!-- .liza_tiny -->
+			<div class="liza_grid_wrapper_single liza_blur_on_aside liza_grid_wrapper liza_grid_9888" data-uniqid="9888" >			
+				<div class="liza_grid_inner masonry_is_off grid_columns3" data-pad="60px"  data-overlay="rgba(0,0,0,0.6)">
+
+					
+					{% for image in project.imgs.all %}
+						<div class="grid-item element anim_el anim_el2 load_anim grid_b2p" >
+							<div class="grid-item-inner">
+								<a class="swipebox" href="{{image.img.url}}" title=""></a>
+								<img src="{{image.img.url}}" alt=""  class="grid_thmb"/>
+								<div class="grid_overlay liza_js_bg_color" data-bgcolor="rgba(0,0,0,0.6)"></div>
+								<div class="liza-img-preloader"></div>
+							</div>
+						</div><!-- .grid-item -->
+					{% endfor %}
+				</div><!-- .liza_grid_inner -->
+		
+			</div><!-- .liza_grid_wrapper_single -->
 		</div><!-- .liza_content -->
 	</div><!-- .liza_container -->
 

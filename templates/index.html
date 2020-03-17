@@ -119,7 +119,7 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>LAT</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Lata doświadczenia</h6></div>
 									<div class="liza_stat_count_wrapper">
 										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.years}}">0</div>
 									</div>
@@ -133,7 +133,7 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>CLIENTS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Klienci</h6></div>
 									<div class="liza_stat_count_wrapper">
 										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.clients}}">0</div>
 									</div>
@@ -147,7 +147,7 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>PROJECTS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Projekty</h6></div>
 									<div class="liza_stat_count_wrapper">
 										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.projects}}">0</div>
 									</div>
@@ -161,7 +161,7 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>AWARDS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Nagrody</h6></div>
 									<div class="liza_stat_count_wrapper">
 										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.awards}}">0</div>
 									</div>
@@ -215,7 +215,7 @@
 				</div><!-- .row -->
 
 				<div class="row liza_js_padding" data-padBottom="84">
-					<div class="col col-12 align_center"><a href="contacts.html" class="liza_button ">Get in touch</a></div>
+					<div class="col col-12 align_center"><a href="{% url 'contact' %}" class="liza_button ">kontakt</a></div>
 				</div><!-- .row -->
 				
 				<div class="row liza_js_bg_image liza_bg_cover liza_set_fullwidth liza_boxed_inner liza_js_margin" data-src="{% static 'img/home_bg1.jpg'%}" data-inner="boxed" data-marBottom="120">
@@ -223,7 +223,7 @@
 						<h6 class="align_center">Thin. Light. Epic.</h6>
 						<h1 class="align_center">Start Something New</h1>
 						<p class="liza_js_padding liza_js_color" data-color="#ffffff" data-padBottom="21">I appreciate the raw reality of everyday life, the fleeting beauty of those in-between moments, and I do my very best to take every picture with that in mind. I want my viewers to relate to my photographs through recognition of and familiarity with the situations.</p>
-						<a href="projects-listing.html" class="liza_button">Show My Works</a>
+						<a href="{% url 'galleries' %}" class="liza_button">Moja galeria</a>
 					</div>
 				</div><!-- .row -->
 				{% if testimonials %}
@@ -253,7 +253,7 @@
 				
 
 				<div class="row liza_js_padding" data-padBottom="27">
-					<div class="col col-12 align_center"><h3>My Latest Projects</h3></div>
+					<div class="col col-12 align_center"><h3>Moje ostatnie projekty</h3></div>
 				</div><!-- .row -->
 				
 				<div class="row liza_set_fullwidth">
@@ -274,7 +274,7 @@
 												<a class="notextdecor" href="project_single-fullwidth.html"><h5 class="innertitle entry-title">{{project.title}}</h5></a>
 												</div>
 												<div class="liza_grid_project_meta liza_meta">
-													<div>{{project.date}}</div>
+													<div>{{project.date|date:'d/m/Y'}}</div>
 												</div>
 											</div>
 										</div>
@@ -294,7 +294,7 @@
 				</div><!-- .row -->
 				
 				<div class="row">
-					<div class="col col-12 align_center"><a href="albums-grid.html" class="liza_button">View More</a></div>
+					<div class="col col-12 align_center"><a href="albums-grid.html" class="liza_button">Więcej</a></div>
 				</div><!-- .row -->
 				
 
