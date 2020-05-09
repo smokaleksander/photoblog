@@ -5,10 +5,10 @@
 <div class="liza_title_breadcrumb_wrapper liza_blur_on_aside liza_js_bg_image " data-src="img/breadcrumb04.jpg">
 		<div class="liza_title_breadcrumb_inner liza_container">
 			<div class="liza_title">
-				<h1 class="entry-title">Welcome to Gallery</h1>
+				<h1 class="entry-title">Witaj w galerii</h1>
 			</div>
 			<div class="liza_breadcrumbs">
-				<a href="/">Home</a><span class="liza_breadcrumb_divider">/</span><span class="current">Welcome to Gallery</span>
+				<a href="/"></a><span class="current">Galeria</span>
 			</div>
 		</div>
 	</div><!-- .liza_title_breadcrumb_wrapper -->
@@ -49,12 +49,34 @@
 													<a class="notextdecor" href="{% url 'gallery' gallery.slug %}"><h4 class="innertitle entry-title">{{gallery.title}}</h4></a>
 												</div>
 												<div class="liza_grid_album_meta liza_meta">
-													<div>{{gallery.date}}</div>
+													<div>{{gallery.date|date:'d/m/Y'}}</div>
 													<div>{{gallery.tags.all|join:", "}}</div>
 												</div>
 											</div>
 										</div>
 									{% endfor %}
+									{% if galleries.has_other_pages %}
+										<div class="row">
+											<div class="col col-12 align_center">
+												<div class="pagination">
+												{% if galleries.has_previous %}
+													<a href="?page={{galleries.previous_page_number}}">&laquo;</a>
+												{% endif %}
+												{% for i in galleries.paginator.page_range %}
+													{% if galleries.number == i %}
+														<a class="active">{{i}}</a>
+													{% else %}
+														<a href="?page={{i}}">{{i}}</a>
+													{% endif %}
+												
+												{% endfor %}
+												{% if galleries.has_next %}
+													<a href="?page={{galleries.next_page_number}}">&raquo;</a>
+												{% endif %}
+												</div>
+											</div>
+										</div><!-- .row -->
+									{% endif %}
 								{% else %}
 									<div class='col-md-12'>
 										<p>Galerie niedostępne</p>

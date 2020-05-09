@@ -445,6 +445,7 @@ jQuery(document).ready(function () {
 	}
 	
 	//Contact Form
+	/*
 	jQuery('#liza_contact_form input[type=submit]').on('click', function(){
 		var this_contact = jQuery(this).parents('form');
 		jQuery.post('mail.php', {
@@ -458,7 +459,7 @@ jQuery(document).ready(function () {
 
 		return false;
 	});
-	
+	*/
 	// Isotope Activation
     if (jQuery('.liza_blog_grid_inner').length) {
 		jQuery('.liza_blog_grid_inner').isotope({
@@ -857,3 +858,7 @@ function liza_flickr_widget () {
 		});
 	});
 }
+
+setTimeout(function(){
+	$('#message').fadeOut('slow');
+},3000);

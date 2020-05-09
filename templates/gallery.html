@@ -2,23 +2,23 @@
 {% load static %}
 {% block content %}
 
-	<div class="liza_title_breadcrumb_wrapper liza_blur_on_aside liza_js_bg_image " data-src="img/breadcrumb05.jpg">
+	<div class="liza_title_breadcrumb_wrapper liza_blur_on_aside liza_js_bg_image " data-src="{% for image in gallery.imgs.all %}{% if forloop.counter == 1 %}{{ image.img.url}}{% endif %}{% endfor %}">
 		<div class="liza_title_breadcrumb_inner liza_container">
 			<div class="liza_title">
 				<h1 class="entry-title">{{gallery.title}}</h1>
 			</div>
 			<div class="liza_breadcrumbs">
-				<a href="{% url 'galleries'%}" rel="tag">Galerie</a><span class="liza_breadcrumb_divider">/</span><span class="current">{{gallery.title}}</span>
+				<a href="{% url 'galleries'%}" rel="tag">Galeria</a><span class="liza_breadcrumb_divider">/</span><span class="current">{{gallery.title}}</span>
 			</div>
 		</div>
 	</div><!-- .liza_title_breadcrumb_wrapper -->
 
     <div class="liza_grid_wrapper_single liza_blur_on_aside liza_grid_wrapper liza_grid_9888" 
 		data-uniqid="9888" 
-		data-perload="3">			
+		style="padding:60px"
+		>			
 		<div class="liza_grid_inner masonry_is_off grid_columns3" 
-			data-pad="60px" 
-			data-perload="3" 
+			data-pad="60px"  
 			data-overlay="rgba(0,0,0,0.6)">
 
 			{% if gallery %}

@@ -8,16 +8,20 @@
 				<!-- Content -->
 				<div class="row liza_gutters">
 					<div class="col col-8 liza_js_padding" data-padTop = "4" data-padBottom="35">
-						<h4 class="liza_js_margin" data-marBottom="31">I Really Appreciate Your Feedback</h4>
-						<form id="liza_contact_form" class="liza_js_padding" data-padBottom="48">
+						<h4 class="liza_js_margin" data-marBottom="31">Masz pytanie? Napisz do mnie </h4>
+						<form id="liza_contact_form" class="liza_js_padding" data-padBottom="48" method="POST">
+							{% csrf_token%}
 							<div class="liza_contact_form">
-								<textarea name="message" cols="40" rows="10" placeholder="MESSAGE"></textarea>
-								<input type="text" name="name" value="" size="40" placeholder="NAME">
-								<input type="email" name="email" value="" size="40" placeholder="EMAIL">
-								<input type="submit" value="SEND MESSAGE">
+								<textarea name="{{form.message.name}}" cols="40" rows="10" placeholder="WIADOMOŚĆ" {% if form.message.value != None %}value="{{ form.message.value|stringformat:'s' }}"{% endif %}
+       							maxlength="{{ form.name.field.max_length }}"
+       							{% if form.name.field.required %}required{% endif %}></textarea>
+								<input type="text" name="{{form.name.name}}" value="" size="40" placeholder="IMIĘ" {% if form.name.field.required %}required{% endif %}>
+								<input type="email" name="{{form.mail.name}}" value="" size="40" placeholder="EMAIL" {% if form.mail.field.required %}required{% endif %}>
+								<input type="submit" value="WYŚLIJ">
+								{% include '_alerts.html' %}
 							</div>
 						</form>
-
+						
 						
 					</div><!-- .col-8 -->
 
@@ -28,11 +32,8 @@
 							Hello! My name's Liza Henderson and I'm a Art Director &amp; Photographer based in the San Francisco.
 							<div class="liza_widget_socials">
 								<a class="liza_widget_soc_facebook" href="#"><span class="fa fa-facebook"></span></a>
-								<a class="liza_widget_soc_twitter" href="#"><span class="fa fa-twitter"></span></a>
-								<a class="liza_widget_soc_vk" href="#"><span class="fa fa-vk"></span></a>
-								<a class="liza_widget_soc_gplus" href="#"><span class="fa fa-google-plus"></span></a>
-								<a class="liza_widget_soc_pinterest" href="#"><span class="fa fa-pinterest"></span></a>
 								<a class="liza_widget_soc_envelope" href="#"><span class="fa fa-envelope"></span></a>
+								<a class="liza_widget_soc_instagram" href="#"><span class="fa fa-instagram"></span></a>
 							</div><!-- .liza_widget_socials -->
 						</div><!-- .liza_about_widget -->
 

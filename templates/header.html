@@ -22,7 +22,6 @@
 							>
 								<a href="{% url 'index' %}">O Mnie</a>
 							</li>
-							</li> 
 							<li
 								{% if 'galerie' in request.path %}
 									class="menu-item-has-children current-menu-ancestor"
@@ -30,7 +29,7 @@
 									class="menu-item-has-children"
 								{% endif %}
 							>
-								<a href="{% url 'galleries' %}">Galerie</a>
+								<a href="{% url 'galleries' %}">Galeria</a>
 							</li>
 							<li
 								{% if 'projekty' in request.path %}
@@ -42,7 +41,7 @@
 								<a href="{% url 'projects' %}">Projekty</a>
 							</li>
 							<li
-								{% if 'Kontakt' in request.path %}
+								{% if 'kontakt' in request.path %}
 									class="menu-item-has-children current-menu-ancestor"
 								{% else %}
 									class="menu-item-has-children"
@@ -65,10 +64,7 @@
 				<div class="liza_social_icons liza_blur_on_aside">
 					<ul class="liza_social_icons_list">
 						<li><a class='facebook' target='_blank' href='https://www.facebook.com/' title='Facebook'><i class='fa fa-facebook'></i></a></li>
-						<li><a class='twitter' target='_blank' href='https://twitter.com/' title='Twitter'><i class='fa fa-twitter'></i></a></li>
-						<li><a class='google-plus' target='_blank' href='https://plus.google.com/' title='Google+'><i class='fa fa-google-plus'></i></a></li>
-						<li><a class='instagram' target='_blank' href='https://www.instagram.com/' title='Instagram'><i class='fa fa-instagram'></i></a></li>
-						<li><a class='pinterest' target='_blank' href='https://www.pinterest.com/' title='Pinterest'><i class='fa fa-pinterest'></i></a></li>
+						<li><a class='instagram' target='_blank' href='https://www.instagram.com/joan.j.photography/' title='Instagram'><i class='fa fa-instagram'></i></a></li>
 					</ul><!-- .liza_social_icons_list -->
 				</div>
 			</div><!-- .liza_header_right_part -->

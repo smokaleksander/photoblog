@@ -25,7 +25,7 @@
 									data-descr = ""
 									data-ratio = "1.6"
 									data-transition = "1000">
-									<img src="img/home02_slider1.jpg" alt="" />
+									<img src="{{ photo_slider.img1.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -36,7 +36,7 @@
 									data-descr = ""
 									data-ratio = "1.5"
 									data-transition = "1000">
-									<img src="img/home02_slider2.jpg" alt="" />
+									<img src="{{ photo_slider.img2.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -47,7 +47,7 @@
 									data-descr = ""
 									data-ratio = "1.77777777"
 									data-transition = "1000">
-									<img src="img/home02_slider3.jpg" alt="" />
+									<img src="{{ photo_slider.img3.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -58,7 +58,7 @@
 									data-descr = ""
 									data-ratio = "1.6"
 									data-transition = "1000">
-									<img src="img/home02_slider4.jpg" alt="" />
+									<img src="{{ photo_slider.img4.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -69,7 +69,7 @@
 									data-descr = ""
 									data-ratio = "1.77777777"
 									data-transition = "1000">
-									<img src="img/home02_slider5.jpg" alt="" />
+									<img src="{{ photo_slider.img5.url}}" alt="" />
 									<div class="liza_ribbon_overlay"></div>
 									<div class="liza_ribbon_overlay_active"></div>
 								</div><!-- .liza_ribbon_slide -->
@@ -77,9 +77,6 @@
 							</div><!-- .liza_ribbon_gallery_container -->
 							<a href="javascript:void(0)" class="liza_ribbon_prevSlide liza_button_prev"></a>
 							<a href="javascript:void(0)" class="liza_ribbon_nextSlide liza_button_next"></a>
-							<div class="liza_ribbon_title_content">
-								<h1 class="liza_ribbon_title">&nbsp;</h1>
-							</div>
 							<div class="liza_ribbon_gallery_trigger personal_preloader"></div>
 						</div><!-- .liza_ribbon_slider_wrapper -->
 					</div>
@@ -113,7 +110,7 @@
 					</div><!-- .col col-6 -->
 					
 					<div class="col col-6 liza_js_padding" data-padLeft="30" data-padLeftTablet="0">
-						<img src="img/home01.jpg" alt=""/>
+						<img src="{% static 'img/home01.jpg' %}" alt=""/>
 					</div><!-- .col col-6 -->
 				</div><!-- .row -->
 				
@@ -122,9 +119,9 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>YEARS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Lata doświadczenia</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="10">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.years}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
@@ -136,9 +133,9 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>CLIENTS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Klienci</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="38">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.clients}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
@@ -150,29 +147,31 @@
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>PROJECTS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Projekty</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="250">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.projects}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
 							</div>
 						</div><!-- .liza_counter -->
 					</div><!-- .col col-3 -->
-					
-					<div class="col col-3">
+					{% if counter.awards != 0 %}
+						<div class="col col-3">
 						<div class="liza_counter" data-temp="Test IT">
 							<div class="liza_counter_wrapper">
 								<div class="liza_counter_content">
-									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>AWARDS</h6></div>
+									<div class="liza_counter_title_wrapper"><h6 class="liza_counter_title liza_js_color" data-color="#ffffff"><span class="liza_js_bg_color" data-bgcolor="#ffffff"></span>Nagrody</h6></div>
 									<div class="liza_stat_count_wrapper">
-										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="15">0</div>
+										<div class="liza_stat_count liza_js_bg_color" data-color="#ffffff" data-count="{{counter.awards}}">0</div>
 									</div>
 									<div class="liza_stat_temp"></div>
 								</div>
 							</div>
 						</div><!-- .liza_counter -->
-					</div><!-- .col col-3 -->
+						</div><!-- .col col-3 -->
+					{% endif %}
+					
 				</div><!-- .row -->
 
 				<div class="row liza_js_padding" data-padBottom="25">
@@ -216,87 +215,45 @@
 				</div><!-- .row -->
 
 				<div class="row liza_js_padding" data-padBottom="84">
-					<div class="col col-12 align_center"><a href="contacts.html" class="liza_button ">Get in touch</a></div>
+					<div class="col col-12 align_center"><a href="{% url 'contact' %}" class="liza_button ">kontakt</a></div>
 				</div><!-- .row -->
 				
-				<div class="row liza_js_bg_image liza_bg_cover liza_set_fullwidth liza_boxed_inner liza_js_margin" data-src="img/home_bg1.jpg" data-inner="boxed" data-marBottom="120">
+				<div class="row liza_js_bg_image liza_bg_cover liza_set_fullwidth liza_boxed_inner liza_js_margin" data-src="{% static 'img/home_bg1.jpg'%}" data-inner="boxed" data-marBottom="120">
 					<div class="col col-12 align_center liza_js_padding liza_home01_promo2" data-padTop="187" data-padBottom="158">
 						<h6 class="align_center">Thin. Light. Epic.</h6>
 						<h1 class="align_center">Start Something New</h1>
 						<p class="liza_js_padding liza_js_color" data-color="#ffffff" data-padBottom="21">I appreciate the raw reality of everyday life, the fleeting beauty of those in-between moments, and I do my very best to take every picture with that in mind. I want my viewers to relate to my photographs through recognition of and familiarity with the situations.</p>
-						<a href="projects-listing.html" class="liza_button">Show My Works</a>
+						<a href="{% url 'galleries' %}" class="liza_button">Moja galeria</a>
 					</div>
 				</div><!-- .row -->
-
-				<div class="row">
-					<div class="col col-12 liza_js_margin" data-marBottom="102">
-						<div class="liza_testimonials_slider liza_owlCarousel owl-carousel owl-theme" data-autoplay = "off"	data-speed = "5000">
-							<div class="liza_testimonials_item">
-								<div class="liza_testimonials_item_inner">
-									<div class="testimonial_content">“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean felis eros, porta non ultrices sit amet.”</div>
-									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial01.jpg" alt="" class="testimonials_img"/>
-										<h6 class="testimonial_author">Nancy Hoover</h6>
-										<div class="testimonial_additional">Lawyer, New York</div>
-									</div>
-								</div>
-							</div><!-- .liza_testimonials_item -->
-							<div class="liza_testimonials_item">
-								<div class="liza_testimonials_item_inner">
-									<div class="testimonial_content">“Phasellus condimentum, ante vel imperdiet varius, leo nulla pulvinar leo, non aliquam eros felis ut mauris nec.”</div>
-									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial02.jpg" alt="" class="testimonials_img"/>
-										<h6 class="testimonial_author">Albert Pierce</h6>
-										<div class="testimonial_additional">Artist, Boston</div>
-									</div>
-								</div>
-							</div><!-- .liza_testimonials_item -->
-							<div class="liza_testimonials_item">
-								<div class="liza_testimonials_item_inner">
-									<div class="testimonial_content">“Accumsan diam, nec malesuada ipsum. Donec ac pulvinar nunc. In et rhoncus justo, ac aliquet arcu et pellentesque.”</div>
-									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial03.jpg" alt="" class="testimonials_img"/>
-										<h6 class="testimonial_author">Helen Evans</h6>
-										<div class="testimonial_additional">Designer, San Francisco</div>
-									</div>
-								</div>
-							</div><!-- .liza_testimonials_item -->
-							<div class="liza_testimonials_item">
-								<div class="liza_testimonials_item_inner">
-									<div class="testimonial_content">“Orci, non dignissim nisi. Quisque mattis nulla in commodo blandit. Fusce scelerisque libero at eros volutpat.”</div>
-									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial04.jpg" alt="" class="testimonials_img"/>
-										<h6 class="testimonial_author">Richard Murphy</h6>
-										<div class="testimonial_additional">Lawyer, New York</div>
-									</div>
-								</div>
-							</div><!-- .liza_testimonials_item -->
-							<div class="liza_testimonials_item">
-								<div class="liza_testimonials_item_inner">
-									<div class="testimonial_content">“Eget fringilla lacus suscipit. Nam lobortis efficitur porta. Nunc et congue nisl. Praesent enim justo, congue eu.”</div>
-									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial05.jpg" alt="" class="testimonials_img"/>
-										<h6 class="testimonial_author">Sophia Wilson</h6>
-										<div class="testimonial_additional">Artist, Boston</div>
-									</div>
-								</div>
-							</div><!-- .liza_testimonials_item -->
-							<div class="liza_testimonials_item">
-								<div class="liza_testimonials_item_inner">
-									<div class="testimonial_content">“Nibh vel, facilisis vehicula urna. Sed consequat ex finibus velit condimentum tempus. Proin pellentesque libero.”</div>
-									<div class="testimonial_author_info">
-										<img src="img/testimonials/testimonial06.jpg" alt="" class="testimonials_img"/>
-										<h6 class="testimonial_author">Ella Fisher</h6>
-										<div class="testimonial_additional">Designer, San Francisco</div>
-									</div>
-								</div>
-							</div><!-- .liza_testimonials_item -->
-						</div><!-- .liza_testimonials_slider -->
-					</div><!-- .col-12 -->
-				</div><!-- .row -->
+				{% if testimonials %}
+					<div class="row">
+						<div class="col col-12 liza_js_margin" data-marBottom="102">
+							<div class="liza_testimonials_slider liza_owlCarousel owl-carousel owl-theme" data-autoplay = "off"	data-speed = "5000">
+								{% for testimonial in testimonials %}
+									<div class="liza_testimonials_item">
+										<div class="liza_testimonials_item_inner">
+											<div class="testimonial_content">{{testimonial.description}}</div>
+											<div class="testimonial_author_info">
+												{% if testimonial.img %}
+													<img src="{{testimonial.img.url}}" alt="" class="testimonials_img"/>
+												{% else %}
+													<img src="" alt="" class="testimonials_img"/>
+												{% endif %}
+												<h6 class="testimonial_author">{{testimonial.name}}</h6>
+												<div class="testimonial_additional">{{testimonial.role}}</div>
+											</div>
+										</div>
+									</div><!-- .liza_testimonials_item -->
+								{% endfor %}
+							</div><!-- .liza_testimonials_slider -->
+						</div><!-- .col-12 -->
+					</div><!-- .row -->
+				{% endif %}
+				
 
 				<div class="row liza_js_padding" data-padBottom="27">
-					<div class="col col-12 align_center"><h3>My Latest Projects</h3></div>
+					<div class="col col-12 align_center"><h3>Moje ostatnie projekty</h3></div>
 				</div><!-- .row -->
 				
 				<div class="row liza_set_fullwidth">
@@ -317,7 +274,7 @@
 												<a class="notextdecor" href="project_single-fullwidth.html"><h5 class="innertitle entry-title">{{project.title}}</h5></a>
 												</div>
 												<div class="liza_grid_project_meta liza_meta">
-													<div>{{project.date}}</div>
+													<div>{{project.date|date:'d/m/Y'}}</div>
 												</div>
 											</div>
 										</div>
@@ -337,7 +294,7 @@
 				</div><!-- .row -->
 				
 				<div class="row">
-					<div class="col col-12 align_center"><a href="albums-grid.html" class="liza_button">View More</a></div>
+					<div class="col col-12 align_center"><a href="albums-grid.html" class="liza_button">Więcej</a></div>
 				</div><!-- .row -->
 				
 

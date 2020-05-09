@@ -1,0 +1,20 @@
+{% if messages%}
+    {% for message in messages %}
+        <a href="#" style="display: inline-block;
+            text-transform: lowercase;
+            height: 40px;
+            line-height: 20px;
+            padding: 9px 17px 11px 18px;
+            border: #535459 2px solid;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            font-size: 13px;
+	        text-transform:uppercase;
+	        letter-spacing:1.2px;
+            margin: 5px 0 0 10px;
+            transition: color 400ms, border 400ms, background 400ms;">
+            {{message}}
+            </a>
+    {% endfor %}
+{% endif %}
